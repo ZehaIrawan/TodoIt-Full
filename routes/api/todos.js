@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 
 //Get all todos
 router.get('/', (req, res) => {
-  pool.query('SELECT * FROM todos', (error, results) => {
+  pool.query('SELECT * FROM todos ORDER BY id DESC', (error, results) => {
     if (error) {
       console.log(error);
     }

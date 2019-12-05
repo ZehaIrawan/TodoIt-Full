@@ -43,7 +43,7 @@ const Todo = ({ todos, getTodos, loading, addTodo, deleteTodo }) => {
             id="title"
             onChange={e => onChange(e)}
             value={title}
-            placeholder="Enter a task"
+            placeholder="Enter a task..."
             required
           />
         </label>

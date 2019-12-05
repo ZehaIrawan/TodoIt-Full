@@ -63,6 +63,10 @@
   bottom: 7px;
 }
 
+.input_img:hover{
+  cursor: pointer;
+}
+
 .checkbox-round {
   width: 3em;
   height: 3em;
@@ -82,11 +86,16 @@
 .box-container {
   margin: 5% auto;
   width: 80%;
-  background-color: #a9a9a9;
+  background-color: AntiqueWhite;
   padding-bottom: 50px;
+  border-radius: 25px;
 }
 
 .del-icon {
   position: absolute;
   right: 20%;
+}
+
+.del-icon:hover{
+  cursor: pointer;
 }
