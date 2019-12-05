@@ -5,10 +5,12 @@ import { updateTodo } from '../actions/todo';
 const EditTodoForm = ({ todo, updateTodo }) => {
   const [formData, setFormData] = useState({
     title: todo.title,
-    date: todo.date,
+    completed: todo.completed,
   });
 
-  const { title, date } = formData;
+  let [isChecked, toggleChange] = useState(false);
+
+  const { title, completed } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,6 +18,10 @@ const EditTodoForm = ({ todo, updateTodo }) => {
   const handleSubmit = e => {
     e.preventDefault();
     updateTodo(todo.id, formData);
+  };
+
+  toggleChange = () => {
+    isChecked = !isChecked;
   };
 
   return (
@@ -31,22 +37,12 @@ const EditTodoForm = ({ todo, updateTodo }) => {
           required
         />
       </label>
-      <label htmlFor="date" id="dateLabel">
-        <input
-          type="text"
-          name="date"
-          id="date"
-          onChange={e => onChange(e)}
-          value={date}
-          placeholder="Enter deadline!"
-          required
-        />
+      <label>
+        <input type="checkbox" checked={completed} onChange={toggleChange} />
       </label>
 
       <br />
-      <button type="submit">
-        Submit
-      </button>
+      <button type="submit">Submit</button>
     </form>
   );
 };

@@ -7,9 +7,7 @@ import store from './store';
 function App() {
   return (
     <Provider  store={store}>
-    <div>
       <Todo/>
-    </div>
     </Provider>
   );
 }

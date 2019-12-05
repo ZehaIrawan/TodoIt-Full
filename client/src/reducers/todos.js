@@ -31,6 +31,7 @@ const todos = (state = initialState, action) => {
         loading: false,
       };
     case EDIT_TODO:
+      console.log(payload);
       return {
         ...state,
         todo: [payload],
@@ -42,13 +43,13 @@ const todos = (state = initialState, action) => {
         todos: state.todos.map(item => {
           // Find the item with the matching id
 
-          if (item.id === payload[0].id) {
+          if (item.id === payload.id) {
             // Return a new object
 
             return {
               ...item, // copy the existing item
-              title: payload[0].title,
-              date: payload[0].date,
+              title: payload.title,
+              completed: payload.completed,
             };
           }
           // Leave every other item unchanged

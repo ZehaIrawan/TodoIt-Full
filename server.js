@@ -7,6 +7,9 @@ const app = express();
 // Init Middleware
 app.use(express.json({ extended: false }));
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 app.use('/api/todos', require('./routes/api/todos'));
 
 // Start server

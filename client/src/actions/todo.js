@@ -57,7 +57,6 @@ export const updateTodo= (id, formData) => async dispatch => {
       'Content-Type': 'application/json',
     },
   };
-  console.log(id,formData);
   try {
     const res = await axios.put(`/todos/${id}`, formData, config);
 

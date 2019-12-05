@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { addTodo, deleteTodo, getTodos } from '../actions/todo';
-import TodoItem  from './TodoItem';
+import TodoItem from './TodoItem';
 
 const Todo = ({ todos, getTodos, loading, addTodo, deleteTodo }) => {
   useEffect(() => {
@@ -11,14 +11,14 @@ const Todo = ({ todos, getTodos, loading, addTodo, deleteTodo }) => {
 
   const [formData, setFormData] = useState({
     title: '',
-    date: '',
+    completed: false,
   });
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const { title, date } = formData;
+  const { title } = formData;
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -34,7 +34,7 @@ const Todo = ({ todos, getTodos, loading, addTodo, deleteTodo }) => {
   }
 
   return (
-    <div>
+    <div className="box-container">
       <form onSubmit={handleSubmit}>
         <label htmlFor="title" id="titleLabel">
           <input
@@ -47,17 +47,7 @@ const Todo = ({ todos, getTodos, loading, addTodo, deleteTodo }) => {
             required
           />
         </label>
-        <label htmlFor="date" id="dateLabel">
-          <input
-            type="text"
-            name="date"
-            id="date"
-            onChange={e => onChange(e)}
-            value={date}
-            placeholder="Enter deadline!"
-            required
-          />
-        </label>
+
         <button type="submit">Add Task</button>
       </form>
 
@@ -68,6 +58,10 @@ const Todo = ({ todos, getTodos, loading, addTodo, deleteTodo }) => {
           date={todo.date}
           deleteTodo={deleteTodo}
           id={todo.id}
+          completed={todo.completed}
+          handleCheck={e => {
+            todo.completed = !todo.completed;
+          }}
         />
       ))}
     </div>
