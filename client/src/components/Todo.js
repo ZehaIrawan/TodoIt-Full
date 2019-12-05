@@ -23,6 +23,7 @@ const Todo = ({ todos, getTodos, loading, addTodo, deleteTodo }) => {
   const handleSubmit = e => {
     e.preventDefault();
     addTodo(formData);
+    setFormData({ ...formData,title: '' });
   };
 
   if (loading) {
@@ -41,6 +42,7 @@ const Todo = ({ todos, getTodos, loading, addTodo, deleteTodo }) => {
             type="text"
             name="title"
             id="title"
+            className="input-style"
             onChange={e => onChange(e)}
             value={title}
             placeholder="Enter a task..."
@@ -48,7 +50,7 @@ const Todo = ({ todos, getTodos, loading, addTodo, deleteTodo }) => {
           />
         </label>
 
-        <button type="submit">Add Task</button>
+        <button className="theme-button" type="submit">Add Task</button>
       </form>
 
       {todos.map(todo => (

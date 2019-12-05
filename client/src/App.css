@@ -63,7 +63,7 @@
   bottom: 7px;
 }
 
-.input_img:hover{
+.input_img:hover {
   cursor: pointer;
 }
 
@@ -96,6 +96,34 @@
   right: 20%;
 }
 
-.del-icon:hover{
+.del-icon:hover {
   cursor: pointer;
+}
+
+.theme-button {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #fff;
+  min-height: 25px;
+  min-width: 50px;
+  border-radius: 3px;
+  background-color: #66bb6a;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.theme-button:hover {
+  cursor: pointer;
+}
+
+.input-style {
+  margin-left: 50px;
+  height: 20px;
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+   outline: none;
 }
