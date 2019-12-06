@@ -4,7 +4,7 @@ import { ADD_TODO, DELETE_TODO, GET_TODOS,UPDATE_TODO,EDIT_TODO } from './types'
 // Get Todos
 export const getTodos = () => async dispatch => {
   try {
-    const res = await axios.get('/todos');
+    const res = await axios.get('/api/todos');
 
     dispatch({
       type: GET_TODOS,
@@ -24,7 +24,7 @@ export const addTodo = formData => async dispatch => {
   };
 
   try {
-    const res = await axios.post('/todos', formData, config);
+    const res = await axios.post('/api/todos', formData, config);
 
     dispatch({
       type: ADD_TODO,
@@ -39,7 +39,7 @@ export const addTodo = formData => async dispatch => {
 // Delete todo
 export const deleteTodo = id => async dispatch => {
   try {
-    await axios.delete(`/todos/${id}`);
+    await axios.delete(`/api/todos/${id}`);
 
     dispatch({
       type: DELETE_TODO,
@@ -58,7 +58,7 @@ export const updateTodo= (id, formData) => async dispatch => {
     },
   };
   try {
-    const res = await axios.put(`/todos/${id}`, formData, config);
+    const res = await axios.put(`/api/todos/${id}`, formData, config);
 
     dispatch({
       type: UPDATE_TODO,
